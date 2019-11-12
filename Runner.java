@@ -23,10 +23,13 @@ public class Runner {
      *
      */
     public static void main(String[] args) {
-
+        //variable declaration
+        ScrabbleScores scrabby = new ScrabbleScores();
         System.out.println("Part I:");
 
-        ScrabbleScores scrabby = new ScrabbleScores();
+        /*try to create a map of scores from an input file
+        * catch FileNotFound exception in case input file did not exist
+        */
         try{
             scrabby.createScoreMap();
         }
@@ -34,6 +37,10 @@ public class Runner {
             System.out.println("File not found - createScoreMap");
         }
 
+
+        /* try to sum all of points for each word from an input file
+         * catch FileNotFound exception in case input file did not exist
+         */
         try{
          scrabby.sumScores();
         }

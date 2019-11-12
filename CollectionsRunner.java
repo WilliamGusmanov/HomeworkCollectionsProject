@@ -27,6 +27,7 @@ import javax.swing.JFileChooser;
  */
 public class CollectionsRunner {
 
+    //variable declaration
     static int totalwords;
     static String fileName = "C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\WarAndPeace.txt";
     static File currentFile = new File(fileName);
@@ -36,6 +37,11 @@ public class CollectionsRunner {
     static Instant end;
     static Duration timeDifference;
 
+
+    /**
+     * Function to read in the file
+     * @param wordMap
+     */
     public static void ReadFile(Map<String, Integer> wordMap){
         totalwords = 0;
         begin = Instant.now();
@@ -58,6 +64,10 @@ public class CollectionsRunner {
         }
     }
 
+
+    /**
+     * function to get an input file using the JFileChooser
+     */
     public static void inputFile() {
         Scanner console = new Scanner(System.in);
         JFileChooser jFileChooser = new JFileChooser();
@@ -69,6 +79,7 @@ public class CollectionsRunner {
         }//end if statement
         console.close();
     }//end function definition
+
 
     /**
      * reads all the words and the number
@@ -84,6 +95,12 @@ public class CollectionsRunner {
         }
 
     }
+
+
+    /**
+     * main to open the file, read it, and read statistics using an iterator
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("Part II:");
         ReadFile(wordTreeMap);
