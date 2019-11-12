@@ -2,6 +2,7 @@ package hwpackage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -22,16 +23,23 @@ public class ScrabbleScores {
 
 	//used to read in the file
 	Scanner in; 
+	String ScrabbleFileName = "ScrabblePoints.txt";
+	String QWordsName = "Qwords.txt";
 	File scrabbleFile;
 	File qWords;
 	Map<Character,Integer> scoreMap;
 	/**
-	 * default constructor 
+	 * default constructor
 	 */
 	ScrabbleScores(){
-		scrabbleFile = new File("ScrabblePoints.txt");
-		qWords = new File("Qwords.txt");
+		scrabbleFile = new File(ScrabbleFileName);
+		qWords = new File(QWordsName);
 	}
+	ScrabbleScores(String ScrabblePath, String QwordsPath){
+		scrabbleFile = new File(ScrabblePath);
+		qWords = new File(QwordsPath);
+	}
+	
 	/**
 	 * adds values to ScoreMap from ScrabblePoints.txt
 	 * @throws FileNotFoundException
@@ -40,20 +48,17 @@ public class ScrabbleScores {
 		Scanner textFile = new Scanner(scrabbleFile);	
 		scoreMap = new HashMap<>();
 		while(textFile.hasNext()) {
-			int value = textFile.nextInt();
-			String inputLine = textFile.next();
-			String[] lines = inputLine.split(" ");
-			for (int i = 0; i < lines.length; i++) { 
-				scoreMap.put(lines[i].charAt(0), value);
-			}
-			textFile.close();
+			String line = textFile.nextLine();
+			System.out.println(line);
+			String[] lines = line.split(" ");
+			int value = Integer.parseInt(lines[0]);
+			for (int i = 1; i < lines.length; i++) { 
+				scoreMap.put(lines[i].toLowerCase().charAt(0), value);
+			}		
 		}
+		textFile.close();
 	}
-	/*
-	public File getQWordsFile(){
-		return qWords; 
-	}
-	*/
+	
 	/**
 	 * 
 	 * @return
@@ -63,28 +68,15 @@ public class ScrabbleScores {
 		Scanner textFile = new Scanner(qWords);
 		while (textFile.hasNext()) {
 			int sum = 0;
-			String line = textFile.next();	
+			String line = textFile.nextLine();	
 			for (int i = 0; i < line.length(); i++) {
-				sum+= scoreMap.get(line.charAt(i));
+				System.out.println(line.charAt(i));
+				sum += scoreMap.get(line.charAt(i));
+			
 			}
 			System.out.printf("Score for word: %s is : %d%n",line,sum);
 		}
+		
 		textFile.close();
 	}
-	
-	/**
-	 * takes in a line, sums up the score, and returns the score
-	 * @param line
-	 * @return sum of values
-	 * @throws FileNotFoundException
-	 */
-/*
-	public int sumScores(String line) throws FileNotFoundException {
-		int sum = 0;
-		for (int i = 0; i < line.length(); i++) {
-			sum += scoreMap.get(line.charAt(i));
-		}		
-		return sum; 
-	}
-*/
 }
