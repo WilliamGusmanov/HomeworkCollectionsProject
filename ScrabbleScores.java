@@ -1,12 +1,3 @@
-package com.company;
-
-import javax.sound.sampled.Line;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
 /**
  Part 1.) read in a short file of words. first letter q, 2nd letter is not a u.
  * 	Scrabble score for each word.
@@ -17,14 +8,30 @@ import java.util.Scanner;
  *  After inputing the rules into the map, read the records in "Q words.txt"
  *  Go through each word, and calculate a total score for every word
  *  return the score for the word when reading the record in the file.
+ *  
+ *   * @author William Gusmanov, Bryan Vu, Kev
  */
+
+package hwpackage;
+
+import javax.sound.sampled.Line;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class ScrabbleScores {
 
-    //used to read in the file
+    /** scanner is used to read scrabbleFile and qWords  */
     private Scanner in;
+    /** scrabbleFile to determine point value of each char */
     private File scrabbleFile;
+    /** words to score */
     private File qWords;
+    /** map that stores a character as a key and integer as the value
+     * the integer is used as a "point value" of a char 
+     */
     private Map<Character,Integer> scoreMap;
 
 
@@ -34,7 +41,7 @@ public class ScrabbleScores {
     ScrabbleScores(){
         scrabbleFile = new File("C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\ScrabblePoints.txt");
         qWords = new File("C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\Qwords.txt");
-    }
+    }//end of default constructor
 
 
     /**
@@ -42,7 +49,6 @@ public class ScrabbleScores {
      * @throws FileNotFoundException
      */
     public void createScoreMap() throws FileNotFoundException {
-
         Scanner textFile = new Scanner(scrabbleFile);
         scoreMap = new HashMap<>();
         char character = ' ';
@@ -53,27 +59,26 @@ public class ScrabbleScores {
 
             if(line.charAt(1) == '0') {
                 points = 10;
-            }
+            }//end if 
             else {
                 points = Character.getNumericValue(line.charAt(0));
-            }
+            }//end else
 
             for(int i = 2; i < line.length(); i++){
                 if(line.charAt(i) != ' ') {
                     character = line.charAt(i);
                     scoreMap.put(character, points); // insert in the HashMap
-                }
-            }
-
-        }
+                }//end if in for
+            }//end for loop
+        }//end while loop
 //        System.out.println(scoreMap); // print the letters and it's value
         textFile.close();
-    }
+    }//end method definition
 
 
     /**
-     *
-     * @return
+     * Method to add scores 
+     * Score is derived from map
      * @throws FileNotFoundException
      */
     public void sumScores() throws FileNotFoundException {
@@ -86,11 +91,11 @@ public class ScrabbleScores {
                 String letter = line.substring(i, i+1);
                 int value = scoreMap.get(letter.toUpperCase().charAt(0));
                 sum += value;
-            }
+            }//end for loop
             System.out.printf("Score for word: %s is : %d%n",line,sum);
-        }
+        }//end while loop
         textFile.close();
-    }
+    }//end method definition
 
 
 
@@ -109,4 +114,4 @@ public class ScrabbleScores {
 		return sum;
 	}
 */
-}
+}//end class
