@@ -28,7 +28,7 @@ import javax.swing.JFileChooser;
 public class CollectionsRunner {
 
 	static int totalwords;
-	static String fileName = "/Users/williamgusmanov/Desktop/War_and_Peace.txt";
+	static String fileName = "War_and_Peace.txt";
 	static File currentFile = new File(fileName);
 	static HashMap<String,Integer> wordHashMap = new HashMap<>();
 	static TreeMap<String,Integer> wordTreeMap = new TreeMap<>();
@@ -45,19 +45,8 @@ public class CollectionsRunner {
 			while(reader.hasNext()) { //&& totalwords != 150) {
 				String inputLine = reader.next();
 				inputLine = inputLine.toLowerCase();
-				//System.out.println(inputLine);
-				/*
-				String[] lines = inputLine.split(" ");
-				totalwords += lines.length; //add the total amount of words in the line 
-				for (int i = 0; i < lines.length; i++) { 	
-					wordMap.merge(lines[i], 1, (key,val)->val + 1); //set to one if null, else set val + 1
-				}
-				*/
-				
 				wordMap.computeIfPresent(inputLine, (key, val) -> val += 1);
 				wordMap.putIfAbsent(inputLine, 1);
-				
-				//wordMap.merge(inputLine, 1, (key,value) -> value += 1);
 				totalwords++; 
 			}
 			end = Instant.now();
@@ -95,10 +84,10 @@ public class CollectionsRunner {
 		
 	}
 	public static void main(String[] args) {
-		//inputFile(); //find the file and choose the book
+		inputFile();
 		System.out.println("HashMap");
-		//ReadFile(wordHashMap);
-		//readStatistics(wordHashMap);
+		ReadFile(wordHashMap);
+		readStatistics(wordHashMap);
 		System.out.println("TreeMap");
 		ReadFile(wordTreeMap);
 		readStatistics(wordTreeMap);

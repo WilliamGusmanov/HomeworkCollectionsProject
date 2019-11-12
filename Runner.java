@@ -1,5 +1,7 @@
 package hwpackage;
 
+import java.io.FileNotFoundException;
+
 public class Runner {
 /**
  * - key implements the Comparable
@@ -22,8 +24,14 @@ public class Runner {
  */
 	public static void main(String[] args) {
 
-		ScrabbleScores scrabby = new ScrabbleScores();
-		
+		ScrabbleScores x = new ScrabbleScores(); 
+		try {
+			x.createScoreMap();
+			x.sumScores();
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
