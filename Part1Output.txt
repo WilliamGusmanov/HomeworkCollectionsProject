@@ -1,0 +1,29 @@
+"C:\Program Files\Java\jdk-12.0.2\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.4\lib\idea_rt.jar=59067:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.3.4\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Keval\IdeaProjects\CollectionsProjectHomework\out\production\CollectionsProjectHomework com.company.Runner
+Part I:
+Score for word: qabala is : 17
+Score for word: qabalah is : 21
+Score for word: qabalahs is : 22
+Score for word: qabalas is : 18
+Score for word: qadi is : 14
+Score for word: qadis is : 15
+Score for word: qaid is : 14
+Score for word: qaids is : 15
+Score for word: qanat is : 14
+Score for word: qanats is : 15
+Score for word: qat is : 12
+Score for word: qats is : 13
+Score for word: qi is : 11
+Score for word: qindar is : 16
+Score for word: qindarka is : 22
+Score for word: qindars is : 17
+Score for word: qintar is : 15
+Score for word: qintars is : 16
+Score for word: qis is : 12
+Score for word: qiviut is : 18
+Score for word: qiviuts is : 19
+Score for word: qoph is : 18
+Score for word: qophs is : 19
+Score for word: qwerty is : 21
+Score for word: qwertys is : 22
+
+Process finished with exit code 0
