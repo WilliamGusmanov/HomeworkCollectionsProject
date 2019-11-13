@@ -1,3 +1,9 @@
+/**
+ * A class to deal with scrabble values for any given word
+ * Homework Assignment: Collection
+ * @author Keval Varia, William Gusmanov, Bryan Wu
+ * @version 2.0.0 11/12/2019
+ */
 package com.company;
 
 import java.io.FileNotFoundException;

@@ -1,3 +1,9 @@
+/**
+ * A class to deal with scrabble values for any given word
+ * Homework Assignment: Collection
+ * @author Keval Varia, William Gusmanov, Bryan Wu
+ * @version 2.0.0 11/12/2019
+ */
 package com.company;
 
 import javax.sound.sampled.Line;
@@ -22,9 +28,21 @@ import java.util.Scanner;
 public class ScrabbleScores {
 
     //used to read in the file
+    /*
+    Input scanner
+     */
     private Scanner in;
+    /*
+    Scrabble file reference
+     */
     private File scrabbleFile;
+    /*
+    File that stores words starting with Q
+     */
     private File qWords;
+    /*
+    Map with a Character Key and its count as value.
+     */
     private Map<Character,Integer> scoreMap;
 
 

@@ -1,3 +1,15 @@
+/**
+ * - Will read the novel War and Peace. Count how many times each word occurs in the book.
+ * - Compare the use of Hashmap and TreeMap and compare performance time.
+ * - Every time you read a word, remove all non-alphabetic characters
+ * - convert all characters to lower case.
+ * - look in map to see if the word exists already, if not, increment.
+ *
+ * - then print out all values in the hash structure
+ * - print how many words in novel
+ * @author William Gusmanov, Bryan Wu, Keval Varia
+ * @version 2.0.0 11/12/2019
+ */
 package com.company;
 
 import java.io.File;
@@ -12,30 +24,17 @@ import java.time.Duration;
 
 import javax.swing.JFileChooser;
 
-/**
- * - Will read the novel War and Peace. Count how many times each word occurs in the book.
- * - Compare the use of Hashmap and TreeMap and compare performance time.
- * - Every time you read a word, remove all non-alphabetic characters
- * - convert all characters to lower case.
- * - look in map to see if the word exists already, if not, increment.
- *
- * - then print out all values in the hash structure
- * - print how many words in novel
- * -
- * @author williamgusmanov
- *
- */
 public class CollectionsRunner {
 
     //variable declaration
-    static int totalwords;
-    static String fileName = "C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\WarAndPeace.txt";
-    static File currentFile = new File(fileName);
-    static HashMap<String,Integer> wordHashMap = new HashMap<>();
-    static TreeMap<String,Integer> wordTreeMap = new TreeMap<>();
-    static Instant begin;
-    static Instant end;
-    static Duration timeDifference;
+    private static int totalwords;
+    private static String fileName = "C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\WarAndPeace.txt";
+    private static File currentFile = new File(fileName);
+    private static HashMap<String,Integer> wordHashMap = new HashMap<>();
+    private static TreeMap<String,Integer> wordTreeMap = new TreeMap<>();
+    private static Instant begin;
+    private static Instant end;
+    private static Duration timeDifference;
 
 
     /**
