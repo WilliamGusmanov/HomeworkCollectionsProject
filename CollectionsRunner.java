@@ -100,7 +100,7 @@ public class CollectionsRunner {
     }//end method definition
     
     public static void main(String[] args) {
-	    System.out.println("Open your War and Peace text file.");
+	System.out.println("Open your War and Peace text file.");
 	inputFile();
         System.out.println("Part II:");
 	System.out.println("HashMap");
