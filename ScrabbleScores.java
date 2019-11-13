@@ -17,6 +17,7 @@ package hwpackage;
 import javax.sound.sampled.Line;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -104,4 +105,14 @@ public class ScrabbleScores {
         }//end while loop
         textFile.close();
     }//end method definition
+   public static void main(String[] args) {
+	   try {
+	   	   ScrabbleScores x = new ScrabbleScores();
+		   x.createScoreMap();
+		   x.sumScores();
+	   }
+	   catch(IOException e) {
+		   e.printStackTrace();
+	   }
+   }
 }//end class
