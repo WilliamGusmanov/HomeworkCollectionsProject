@@ -31,7 +31,7 @@ public class CollectionsRunner {
 	/** int to store the total words of the file (War and Peace) */
     static int totalwords;
     /** file path name */
-    static String fileName = "C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\WarAndPeace.txt";
+    static String fileName = "WarAndPeace.txt";
     static File currentFile = new File(fileName);
     /** Hashmap to store the wordcount of each word within the file(War and Peace)*/
     static HashMap<String,Integer> wordHashMap = new HashMap<>();
@@ -59,7 +59,6 @@ public class CollectionsRunner {
             while(reader.hasNext()) { //&& totalwords != 150) {
                 String inputLine = reader.next();
                 inputLine = inputLine.toLowerCase();
-
                 wordMap.computeIfPresent(inputLine, (key, val) -> val += 1);
                 wordMap.putIfAbsent(inputLine, 1);
                 totalwords++;
@@ -101,8 +100,14 @@ public class CollectionsRunner {
     }//end method definition
     
     public static void main(String[] args) {
+	    System.out.println("Open your War and Peace text file.");
+	inputFile();
         System.out.println("Part II:");
-        ReadFile(wordTreeMap);
+	System.out.println("HashMap");
+	ReadFile(wordHashMap);
+	readStatistics(wordHashMap);
+        System.out.println("TreeMap");
+	ReadFile(wordTreeMap);
         readStatistics(wordTreeMap);
     }//end main
     
