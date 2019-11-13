@@ -26,8 +26,10 @@ public class ScrabbleScores {
     /** scanner is used to read scrabbleFile and qWords  */
     private Scanner in;
     /** scrabbleFile to determine point value of each char */
+    private String scrabbleName; 
     private File scrabbleFile;
     /** words to score */
+    private String qWordsName;	
     private File qWords;
     /** map that stores a character as a key and integer as the value
      * the integer is used as a "point value" of a char 
@@ -39,10 +41,17 @@ public class ScrabbleScores {
      * default constructor
      */
     ScrabbleScores(){
-        scrabbleFile = new File("C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\ScrabblePoints.txt");
-        qWords = new File("C:\\Users\\Keval\\IdeaProjects\\CollectionsProjectHomework\\src\\com\\company\\Qwords.txt");
+        scrabbleFile = new File("ScrabblePoints.txt");
+        qWords = new File("Qwords.txt");
     }//end of default constructor
-
+	
+    /**
+    * constructor that takes path names of both files. 
+    */
+    ScrabbleScores(String ScrabbleName, String QwordsName){
+		scrabbleFile = new File(ScrabbleName);
+		qWords = new File(QwordsName);
+    }//end constructor definition
 
     /**
      * adds values to ScoreMap from ScrabblePoints.txt
@@ -71,8 +80,7 @@ public class ScrabbleScores {
                 }//end if in for
             }//end for loop
         }//end while loop
-//        System.out.println(scoreMap); // print the letters and it's value
-        textFile.close();
+    textFile.close();
     }//end method definition
 
 
@@ -96,22 +104,4 @@ public class ScrabbleScores {
         }//end while loop
         textFile.close();
     }//end method definition
-
-
-
-    /**
-     * takes in a line, sums up the score, and returns the score
-     * @param line
-     * @return sum of values
-     * @throws FileNotFoundException
-     */
-/*
-	public int sumScores(String line) throws FileNotFoundException {
-		int sum = 0;
-		for (int i = 0; i < line.length(); i++) {
-			sum += scoreMap.get(line.charAt(i));
-		}
-		return sum;
-	}
-*/
 }//end class
